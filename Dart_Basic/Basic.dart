@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 void main() {
   // 작은 따옴표와 큰 따옴표 둘다 사용가능. 문법상 차이가 없고, 문서에서는 주로 작은 따옴표를 사용한다
   //  print('Hello, World');
@@ -18,8 +16,8 @@ void main() {
 
   // num은 int와 double을 모두 포함한 변수타입이다. num의 장점은 타입 캐스팅을 할때 나타난다.
   // Dart에서 타입 캐스팅을 할때 반드시 표현을 해줘야하지만 num은 그럴 필요가 없다.
-  int c1= 5;
-  double c2= 10.5;
+  int c1 = 5;
+  double c2 = 10.5;
   //c1 = c2 as int;
   //c2 = c1 as double;
   num c3 = 10;
@@ -37,25 +35,25 @@ void main() {
 
   // 리스트이다. 이 타입 역시 var을 통해 간편하게 사용할 수 있다. 리스트 접근은 배열을 접근하는 방법과 같다.
   // Dart는 배열이 없다...
-  List<String> f1 = ['a','b','c'];
-  List<int> f2 = [1,2,3];
-  var f3 = ['a','b','c'];
-  var f4 = [1,2,3];
+  List<String> f1 = ['a', 'b', 'c'];
+  List<int> f2 = [1, 2, 3];
+  var f3 = ['a', 'b', 'c'];
+  var f4 = [1, 2, 3];
   print(f3[0]);
   print(f3[1]);
   print(f3[2]);
 
   // set
-  Set<int> g1 = {1,2,3};
+  Set<int> g1 = {1, 2, 3};
   // map
   Map h = {
-    'key1' : 1,
-    'key2' : 2,
-    'key3' : 3,
+    'key1': 1,
+    'key2': 2,
+    'key3': 3,
   };
   // ... 문법
-  var i1 =  [1,2,3];
-  var i2 = [... i1,4,5];  // print -> [1,2,3,4,5]
+  var i1 = [1, 2, 3];
+  var i2 = [...i1, 4, 5]; // print -> [1,2,3,4,5]
 
   // function
   // j1. 옵션기능 함수의 파라미터를 {}로 감싸면 아래와 같이 : 연산자를 통해 지정할 수 있다.
@@ -71,9 +69,9 @@ void main() {
   // 타입 비교
   // is를 사용한다, is! 하면 is not 이다.
   var k1 = 10;
-  if(k1 is int){
+  if (k1 is int) {
     print("정수");
-  }else if(k1 is! double){
+  } else if (k1 is! double) {
     print("안정수");
   }
   // ?? 문법
@@ -93,14 +91,13 @@ void main() {
   Person person = Person();
   Person2 person2 = Person2();
 
-
   // Futrue 비동기를 위해 사용된다.
   print('시작');
   networkRequest();
   print('끝');
 }
 
-Future networkRequest() async{
+Future networkRequest() async {
   print('네트워크 요청 시작');
   await Future.delayed(Duration(seconds: 1));
   print('1');
@@ -110,15 +107,15 @@ Future networkRequest() async{
   print('3');
   await Future.delayed(Duration(seconds: 1));
   print('네트워크 요청 끝');
-
 }
+
 /// dwdwdwd
 class Person {
   String name;
   int age;
   Person({this.name, this.age});
-
 }
+
 class Person2 {
   String _name;
   int _age;
@@ -130,17 +127,14 @@ class Person2 {
   }
 }
 
-
-
 void myprint(dynamic a) {
   return;
 }
-void j1(var name, {var age}) {
-}
-void j2(var name ,{var age = 10}) {
-}
-void j3(var name ,{@required var age}){}
 
-void j4(Function(int i) f){
+void j1(var name, {var age}) {}
+void j2(var name, {var age = 10}) {}
+void j3(var name, {var age}) {}
+
+void j4(Function(int i) f) {
   f(10);
 }
