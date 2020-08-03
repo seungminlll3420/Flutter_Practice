@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'mainpage.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ch 4 Value Widgets',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MainPage(),
     );
   }
 }
