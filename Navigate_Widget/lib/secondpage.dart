@@ -4,7 +4,8 @@ import 'information.dart';
 class SecondPage extends StatelessWidget {
   Information _information;
   SecondPage(this._information);
-
+  var input = TextEditingController();
+  String test;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,20 +14,27 @@ class SecondPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(
-            child: Icon(
-              Icons.nature_people,
+            child: IconButton(
+              icon: Icon(Icons.nature_people),
+              iconSize: 180,
               color: Colors.blue,
-              size: 100,
+              onPressed: () {},
             ),
           ),
           Text(_information.name),
           Text(_information.email),
           Text(_information.pon_number),
+          TextField(
+            controller: input,
+            onChanged: (value) {
+              test = value;
+            },
+          ),
           RaisedButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pop(context, test);
             },
-            child: Text('첫번째 페이지로 가기'),
+            child: Text('입력하기'),
           )
         ],
       ),

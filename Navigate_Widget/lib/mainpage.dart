@@ -15,7 +15,7 @@ class _MainPageState extends State<MainPage> {
   String email;
   String name;
   String pon_number;
-
+  String result = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +24,13 @@ class _MainPageState extends State<MainPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Center(
-                child: Icon(
-              Icons.cake,
+                child: IconButton(
+              icon: Icon(Icons.cake),
               color: Colors.red,
-              size: 100,
+              iconSize: 100,
+              onPressed: () {
+                setState(() {});
+              },
             )),
             TextField(
                 controller: _controller_name,
@@ -65,16 +68,23 @@ class _MainPageState extends State<MainPage> {
             RaisedButton(
               child: Text('두번째 페이지 가기'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        SecondPage(Information(email, pon_number, name)),
-                  ),
-                );
+                _button_data(context).then(result);
               },
-            )
+            ),
+            if (result != null) Text(result),
           ],
         ));
+  }
+
+  _button_data(BuildContext context) {
+    setState(() async {
+      result = await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              SecondPage(Information(email, pon_number, name)),
+        ),
+      );
+    });
   }
 }
