@@ -1,35 +1,51 @@
-import 'dart:io';
+import 'dart:math';
+
+Set<int> lottoNumber() {
+  var random = Random();
+
+  Set<int> lottoSet = {};
+
+  while (lottoSet.length != 6) {
+    lottoSet.add(random.nextInt(45) + 1);
+  }
+
+  print('당첨번호');
+  print(lottoSet);
+
+  return lottoSet;
+}
+
+Set<int> myNumber() {
+  var random = Random();
+
+  Set<int> mySet = {};
+
+  while (mySet.length != 6) {
+    mySet.add(random.nextInt(45) + 1);
+  }
+
+  print('내 추천번호');
+  print(mySet);
+
+  return mySet;
+}
+
+void checkNumber(lottoSet, mySet) {
+  int x = 0;
+  for (int lotto in lottoSet) {
+    for (int myNum in mySet) {
+      if (lotto == myNum) {
+        x++;
+      }
+      // print('로또번호 = $lotto');
+      // print('내 추첨번호 = $myNum');
+    }
+  }
+  print('당첨된 번호 개수 : $x');
+}
 
 void main() {
-  showData();
-}
-
-void showData() {
-  startTask();
-  aCCessData();
-  fetchData();
-}
-
-void startTask() {
-  String info1 = '요청 수행 시작';
-  print(info1);
-}
-
-void aCCessData() {
-  Duration time = Duration(seconds: 3);
-
-  if (time.inSeconds > 2) {
-    Future.delayed(time, () {
-      String info2 = '데이터 처리 완료';
-      print(info2);
-    });
-  } else {
-    String info2 = '데이터를 가져왔습니다';
-    print(info2);
-  }
-}
-
-void fetchData() {
-  String info3 = '잔액은 8,500만원 입니다';
-  print(info3);
+  Set<int> lottoFinal = lottoNumber();
+  Set<int> myFinal = myNumber();
+  checkNumber(lottoFinal, myFinal);
 }
