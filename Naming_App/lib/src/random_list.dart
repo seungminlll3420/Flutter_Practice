@@ -12,7 +12,6 @@ class _RandomListState extends State<RandomList> {
   final Set<WordPair> saved = <WordPair>{};
   @override
   Widget build(BuildContext context) {
-    final randomWord = WordPair.random();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
@@ -21,8 +20,16 @@ class _RandomListState extends State<RandomList> {
             IconButton(
               icon: Icon(Icons.list),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SavedList(saved)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SavedList(
+                              saved: saved,
+                            ))).then((value) {
+                  setState(() {
+                    _buildList();
+                  });
+                });
               },
             )
           ],
@@ -57,13 +64,13 @@ class _RandomListState extends State<RandomList> {
       ),
       onTap: () {
         setState(() {
-          if (alreadySaved == true)
+          if (alreadySaved)
             saved.remove(pair);
           else
             saved.add(pair);
-        });
 
-        print(saved.toString());
+          print(saved.toString());
+        });
       },
     );
   }
