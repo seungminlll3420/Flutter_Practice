@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:real_instagram_clon/home_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -8,9 +9,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    Container(
-      color: Colors.primaries[0],
-    ),
+    HomePage(),
     Container(
       color: Colors.primaries[1],
     ),
@@ -27,9 +26,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Real_Instagram_clon'),
-      ),
       body: IndexedStack(
         index: _selectedIndex,
         children: _widgetOptions,
