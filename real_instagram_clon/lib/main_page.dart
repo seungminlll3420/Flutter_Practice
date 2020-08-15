@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:real_instagram_clon/home_page.dart';
+import 'package:real_instagram_clon/screens/feed_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -9,7 +9,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
+    FeedPage(),
     Container(
       color: Colors.primaries[1],
     ),
