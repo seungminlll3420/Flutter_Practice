@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_instagram_clon/screens/feed_page.dart';
+import 'package:real_instagram_clon/widgets/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -19,9 +20,7 @@ class _MainPageState extends State<MainPage> {
     Container(
       color: Colors.primaries[3],
     ),
-    Container(
-      color: Colors.primaries[4],
-    ),
+    ProfilePage()
   ];
   @override
   Widget build(BuildContext context) {
