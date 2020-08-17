@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:real_instagram_clon/screens/camera_page.dart';
 import 'package:real_instagram_clon/screens/feed_page.dart';
-import 'package:real_instagram_clon/widgets/profile_page.dart';
+import 'package:real_instagram_clon/screens/search_page.dart';
+import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/screens/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -9,13 +12,12 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
+
   static List<Widget> _widgetOptions = <Widget>[
     FeedPage(),
+    SearchPage(),
     Container(
-      color: Colors.primaries[1],
-    ),
-    Container(
-      color: Colors.primaries[2],
+      color: Colors.primaries[3],
     ),
     Container(
       color: Colors.primaries[3],
@@ -24,6 +26,9 @@ class _MainPageState extends State<MainPage> {
   ];
   @override
   Widget build(BuildContext context) {
+    if (size == null) {
+      size = MediaQuery.of(context).size;
+    }
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
@@ -70,8 +75,17 @@ class _MainPageState extends State<MainPage> {
   }
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index == 2) {
+      openCamera(context);
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+  }
+
+  openCamera(BuildContext context) {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => CameraPage()));
   }
 }

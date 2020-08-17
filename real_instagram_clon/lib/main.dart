@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:real_instagram_clon/main_page.dart';
-import 'package:real_instagram_clon/screens/constants.dart';
+import 'package:real_instagram_clon/screens/auth_page.dart';
+import 'package:real_instagram_clon/utils/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: white),
-      home: MainPage(),
+      home: AuthPage(),
     );
   }
 }
