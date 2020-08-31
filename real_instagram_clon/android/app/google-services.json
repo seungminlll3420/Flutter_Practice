@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1016573973624",
+    "firebase_url": "https://instagram-clon-real.firebaseio.com",
+    "project_id": "instagram-clon-real",
+    "storage_bucket": "instagram-clon-real.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016573973624:android:872eb79c4a8e36b731098d",
+        "android_client_info": {
+          "package_name": "com.example.real_instagram_clon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016573973624-8mu64hqbu0qqnitbfpnemsaclgajcqdo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnWKo90mOdhihGgrcbDHmdmt-St8rXvIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016573973624-8mu64hqbu0qqnitbfpnemsaclgajcqdo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1016573973624-1gsihetj9gogj6vuahoseuhac0qbio66.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.realInstagramClon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
