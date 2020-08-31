@@ -24,6 +24,7 @@ class _ProfilePageState extends State<ProfilePage>
   double _myImgGridMargin = size.width;
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     _animationController = AnimationController(
         vsync: this, duration: Duration(milliseconds: duration));
@@ -32,6 +33,7 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
     super.dispose();
   }
@@ -63,7 +65,7 @@ class _ProfilePageState extends State<ProfilePage>
       child: SafeArea(
         child: SizedBox(
           width: menuWidth,
-          child: profileSideMenu(),
+          child: ProfileSideMenu(),
         ),
       ),
     );

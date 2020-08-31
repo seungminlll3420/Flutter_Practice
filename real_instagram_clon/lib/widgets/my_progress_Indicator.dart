@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:real_instagram_clon/utils/size.dart';
 
 class MyProgressIndicator extends StatelessWidget {
   final double containerSize;

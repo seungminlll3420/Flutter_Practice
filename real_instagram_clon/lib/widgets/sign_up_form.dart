@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:real_instagram_clon/main_page.dart';
+import 'package:real_instagram_clon/service/facebook_login.dart';
+
 import 'package:real_instagram_clon/utils/simple_Snackbar.dart';
 import 'package:real_instagram_clon/utils/size.dart';
 
@@ -10,14 +12,17 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   var _formKey = GlobalKey<FormState>();
-  var _emailController = TextEditingController();
-  var _pwController = TextEditingController();
-  var _cpwController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _pwController = TextEditingController();
+  final _cpwController = TextEditingController();
+
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
     _emailController.dispose();
     _pwController.dispose();
+    _cpwController.dispose();
     super.dispose();
   }
 
@@ -57,6 +62,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 height: 1,
               ),
               TextFormField(
+                obscureText: true,
                 controller: _pwController,
                 decoration: _getTextFieldDecor('Password'),
                 validator: (String value) {
@@ -71,6 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 height: 1,
               ),
               TextFormField(
+                obscureText: true,
                 controller: _cpwController,
                 decoration: _getTextFieldDecor('Confirm Password'),
                 validator: (String value) {
@@ -87,9 +94,7 @@ class _SignUpFormState extends State<SignUpForm> {
               FlatButton(
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
-                    final roote =
-                        MaterialPageRoute(builder: (context) => MainPage());
-                    Navigator.pushReplacement(context, roote);
+                    _register;
                   }
                 },
                 child: Text(
@@ -132,7 +137,7 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
               FlatButton.icon(
                 onPressed: () {
-                  simpleSnackBar(context, 'Test Snackbar!');
+                  signInFacebook(context);
                 },
                 icon: ImageIcon(AssetImage('assets/icon/facebook.png')),
                 label: Text('Login with Facebook'),
@@ -146,6 +151,19 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
       ),
     );
+  }
+
+  get _register async {
+    final AuthResult result =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _pwController.text.trim(),
+    );
+    final FirebaseUser user = result.user;
+
+    if (user == null) {
+      simpleSnackbar(context, 'Please try again later!');
+    }
   }
 
   InputDecoration _getTextFieldDecor(String hint) {

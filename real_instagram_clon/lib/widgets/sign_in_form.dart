@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:real_instagram_clon/main_page.dart';
+import 'package:real_instagram_clon/service/facebook_login.dart';
 import 'package:real_instagram_clon/utils/simple_Snackbar.dart';
 import 'package:real_instagram_clon/utils/size.dart';
 
@@ -14,6 +16,7 @@ class _SignInFormState extends State<SignInForm> {
   var _pwController = TextEditingController();
   @override
   void dispose() {
+    // ignore: todo
     // TODO: implement dispose
     _emailController.dispose();
     _pwController.dispose();
@@ -56,6 +59,7 @@ class _SignInFormState extends State<SignInForm> {
                 height: 1,
               ),
               TextFormField(
+                obscureText: true,
                 controller: _pwController,
                 decoration: _getTextFieldDecor('Password'),
                 validator: (String value) {
@@ -81,9 +85,7 @@ class _SignInFormState extends State<SignInForm> {
               FlatButton(
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
-                    final roote =
-                        MaterialPageRoute(builder: (context) => MainPage());
-                    Navigator.pushReplacement(context, roote);
+                    _login;
                   }
                 },
                 child: Text(
@@ -126,7 +128,7 @@ class _SignInFormState extends State<SignInForm> {
               ),
               FlatButton.icon(
                 onPressed: () {
-                  simpleSnackBar(context, 'Test Snackbar!');
+                  signInFacebook(context);
                 },
                 icon: ImageIcon(AssetImage('assets/icon/facebook.png')),
                 label: Text('Login with Facebook'),
@@ -140,6 +142,21 @@ class _SignInFormState extends State<SignInForm> {
         ),
       ),
     );
+  }
+
+  get _login async {
+    try {
+      final AuthResult result =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _pwController.text.trim(),
+      );
+
+      final FirebaseUser user = result.user;
+    } catch (e) {
+      print(e.toString());
+      simpleSnackbar(context, 'Please try again later!');
+    }
   }
 
   InputDecoration _getTextFieldDecor(String hint) {

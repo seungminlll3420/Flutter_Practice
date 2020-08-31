@@ -1,9 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:real_instagram_clon/screens/auth_page.dart';
 
 import 'package:real_instagram_clon/utils/size.dart';
 
-class profileSideMenu extends StatelessWidget {
+class ProfileSideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,9 +26,7 @@ class profileSideMenu extends StatelessWidget {
           ),
           FlatButton.icon(
               onPressed: () {
-                final roote =
-                    MaterialPageRoute(builder: (context) => AuthPage());
-                Navigator.pushReplacement(context, roote);
+                FirebaseAuth.instance.signOut();
               },
               icon: Icon(Icons.exit_to_app),
               label: Text(
