@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:real_instagram_clon/screens/camera_page.dart';
 import 'package:real_instagram_clon/screens/feed_page.dart';
 import 'package:real_instagram_clon/screens/search_page.dart';
-import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/constants/size.dart';
 import 'package:real_instagram_clon/screens/profile_page.dart';
 
 class MainPage extends StatefulWidget {

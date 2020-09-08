@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_instagram_clon/utils/profile_img_path.dart';
-import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/constants/size.dart';
 
 class SearchPage extends StatelessWidget {
   final List users = List.generate(10, (i) => 'user $i');

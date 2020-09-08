@@ -1,8 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:real_instagram_clon/utils/profile_img_path.dart';
-import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/constants/size.dart';
 import 'package:real_instagram_clon/widgets/comment.dart';
 import 'package:real_instagram_clon/widgets/my_progress_Indicator.dart';
 
@@ -22,6 +23,12 @@ class FeedPage extends StatelessWidget {
               color: Colors.black,
             )),
         actions: [
+          IconButton(
+              onPressed: () {},
+              icon: ImageIcon(
+                AssetImage("assets/actionbar_camera.png"),
+                color: Colors.black,
+              )),
           IconButton(
               onPressed: () {},
               icon: ImageIcon(

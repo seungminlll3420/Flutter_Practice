@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_instagram_clon/utils/profile_img_path.dart';
-import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/constants/size.dart';
 
 class Comment extends StatelessWidget {
   final String username;

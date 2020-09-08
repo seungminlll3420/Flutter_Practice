@@ -1,8 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:real_instagram_clon/data/provider/my_user_data.dart';
+import 'package:real_instagram_clon/data/user.dart';
 import 'package:real_instagram_clon/utils/profile_img_path.dart';
-import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/constants/size.dart';
 import 'dart:ui';
 
 import 'package:real_instagram_clon/widgets/profile_side_menu.dart';
@@ -192,9 +195,11 @@ class _ProfilePageState extends State<ProfilePage>
       );
   Padding _username() {
     return Padding(
-      padding: const EdgeInsets.only(left: common_gap),
-      child: Text('username', style: TextStyle(fontWeight: FontWeight.bold)),
-    );
+        padding: const EdgeInsets.only(left: common_gap),
+        child: Consumer<MyUserData>(builder: (context, myUserData, child) {
+          return Text(myUserData.data.username,
+              style: TextStyle(fontWeight: FontWeight.bold));
+        }));
   }
 
   Padding _userBio() {

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:real_instagram_clon/main_page.dart';
+
 import 'package:real_instagram_clon/service/facebook_login.dart';
 import 'package:real_instagram_clon/utils/simple_Snackbar.dart';
-import 'package:real_instagram_clon/utils/size.dart';
+import 'package:real_instagram_clon/constants/size.dart';
 
 class SignInForm extends StatefulWidget {
   @override
