@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
 class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print("dwd");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent[400],
